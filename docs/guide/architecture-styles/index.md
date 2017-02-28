@@ -1,12 +1,18 @@
 # Architecture styles
 
-We use the term *architecture style* to mean a family of architectures that share certain characteristics. *N-tier application* and *microservices application* are two examples of architectural styles. 
+We use the term **architecture style** to mean a family of architectures that share certain characteristics. *N-tier application* and *microservices application* are examples of architecture styles. 
 
-An architecture style is an abstraction that defines high level concepts and a shared vocabulary. For example, the N-tier architecture styles defines the concept of a *tier*, and the microservices architecture style defines the concept of a *microservice*. By creating a shared vocabulary, it is easier to understand and reason about the architecture.
+An architecture style is an abstraction that defines high-level concepts and a shared vocabulary. For example, an N-tier architecture includes the concept of a *tier*, and a microservices architecture includes  the concept of a *microservice*. Shared concepts and vocabulary make it is easier to understand and reason about the architecture.
 
-The choice of an architectural style does dictate a particular technology. However, certain technologies are more naturally suited for some architectures. For example, container orchestrators are a natural fit for microservices architectures. So the choice of architectural style informs the choice of technologies. 
+The choice of an architecture style does not dictate a particular technology. However, certain technologies are more naturally suited for some architectures. For example, container orchestrators are a natural fit for microservices architectures. So the choice of architecture style informs the choice of technologies. 
 
-Architectural styles as constraints. The high-level concepts in an architectural style impose a set of constraints on the architecture. These contraints guide the design and create a "shape." The hope is that by conforming to these constraints, certain desirable properties will emerge. Therefore it’s important to understand not just the constraints (the "shape" of the architecture) but the motivation behind them.
+## Architecture styles as constraints. 
+
+The high-level concepts in an architecture style impose a set of constraints on the architecture. These contraints guide the design and create a "shape." The hope is that by conforming to these constraints, certain desirable properties will emerge. Therefore it’s important to understand not just the constraints (the "shape" of the architecture) but the motivation behind them.
+
+... for example ...
+
+## Catalog of architecture styles
 
 For each architecture style, we include the following:
 
