@@ -31,6 +31,6 @@ Databases are one obvious candidate for partitioning, but you can also partition
 <!-- links -->
 
 [azure-limits]: /azure/azure-subscription-service-limits
-[data-partitioning-guidance]: ../best-practices/data-partitioning.md
+[data-partitioning-guidance]: ../../best-practices/data-partitioning.md
 
  

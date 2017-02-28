@@ -37,4 +37,4 @@ You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coord
 <!-- links -->
 
 [cqrs]: ../patterns/command-and-query-responsibility-segregation-cqrs.md
-[sas-pattern]: ../patterns/scheduler-agent-supervisor.md
+[sas-pattern]: ../../patterns/scheduler-agent-supervisor.md

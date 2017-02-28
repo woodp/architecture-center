@@ -36,4 +36,4 @@ Design your application so that it can scale horizontally, adding or removing ne
 [app-service-autoscale]: https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-scale
 [vmss-autoscale]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
 [cloud-service-autoscale]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-how-to-scale
-[pipes-filters-pattern]: ../patterns/pipes-and-filters.md
+[pipes-filters-pattern]: ../../patterns/pipes-and-filters.md

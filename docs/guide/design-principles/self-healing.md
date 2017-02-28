@@ -22,7 +22,7 @@ Also, don’t just consider "big events" like regional outages, which are genera
 
 **Retry failed operations**. Transient failures may occur due to momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Build retry logic into your application to handle transient failures. For many Azure services, the client SDK implements automatic retries. 
 
-**Protect failing remote services (Circuit Breaker)**. It’s good to retry after a transient failure, but if the failure persists, you can end up with too many callers hammering a failing service. This can lead to cascading failures, as requests back up. Use the [Circuit Breaker Pattern](../patterns/circuit-breaker.md) to fail fast (without making the remote call) when an operation is likely to fail.  
+**Protect failing remote services (Circuit Breaker)**. It’s good to retry after a transient failure, but if the failure persists, you can end up with too many callers hammering a failing service. This can lead to cascading failures, as requests back up. Use the [Circuit Breaker Pattern][circuit-breaker] to fail fast (without making the remote call) when an operation is likely to fail.  
 
 **Isolate critical resources (Bulkhead)**. Failures in one subsystem can sometimes cascade. This can happen if a failure causes some resources, such as threads or sockets, not to get freed in a timely manner, leading to resource exhaustion. To avoid this, partition a system into isolated groups, so that a failure in one partition does not bring down the entire system.  
 
@@ -46,5 +46,7 @@ Also, don’t just consider "big events" like regional outages, which are genera
 
 **Embrace chaos engineering**. Chaos engineering extends the notion of fault injection, by randomly injecting failures or abnormal conditions into production instances. 
 
-For a structured approach to making your applications self-healing, see [Design resilient applications for Azure](../resiliency/index.md).  
+For a structured approach to making your applications self-healing, see [Design resilient applications for Azure][resiliency-overview].  
+[circuit-breaker]: ../../patterns/circuit-breaker.md
+[resiliency-overview]: ../../resiliency/index.md
 
