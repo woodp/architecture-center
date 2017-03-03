@@ -25,7 +25,7 @@ The choice of an architecture style does not dictate a particular technology. Ho
 - CQRS
 - Event driven
 - Microservices
-- [N-tier](./n-tier)
+- [N-tier](./n-tier.md)
 - [Web-queue-worker](./web-queue-worker.md)
 
 For each architecture style, we include the following:

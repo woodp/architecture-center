@@ -25,10 +25,10 @@ N-tier architectures are typically implemented as IaaS applications, with each t
 Consider an N-tier architecture for:
 
 - Simple web applications. 
-- Migrating an on-premises application to Azure with minimum refactoring.
+- Migrating an on-premises application to Azure with minimal refactoring.
 - Unified development of on-premises and cloud applications.
 
-N-tier architectures are very common in traditional on-premises applications, so it’s a natural fit for migrating existing workloads to Azure.
+N-tier architectures are very common in traditional on-premises applications, so it's a natural fit for migrating existing workloads to Azure.
 
 ## Benefits
 
@@ -44,7 +44,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 - Managing an IaaS application is more work than a pure PaaS application that uses only managed services. 
 - It can be difficult to manage the versioning of the code that is deployed on the VMs, making it challenging to update the application.
 
-## N-tier architecture running on virtual machines
+## N-tier architecture on virtual machines
 
 This section describes a recommended N-tier architecture running on VMs. 
 
