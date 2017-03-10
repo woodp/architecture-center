@@ -40,7 +40,7 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 <!-- links -->
 
-[multi-vm-blueprint]: ../../blueprints/virtual-machines-windows/multi-vm.md
+[multi-vm-blueprint]: ../../reference-architectures/virtual-machines-windows/multi-vm.md
 
 [cassandra]: http://cassandra.apache.org/
 [docdb-geo-replication]: /azure/documentdb/documentdb-distribute-data-globally

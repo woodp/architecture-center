@@ -3,6 +3,7 @@
 ## [Overview](./index.md)
 
 ## [Architecture styles](./architecture-styles/index.md)
+### [Microservices](./architecture-styles/microservices.md)
 ### [N-tier application](./architecture-styles/n-tier.md)
 ### [Web-queue-worker](./architecture-styles/web-queue-worker.md)
 

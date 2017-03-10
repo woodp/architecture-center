@@ -75,9 +75,9 @@ Do not allow direct RDP or SSH access to VMs that are running application code. 
 
 - If you need higher availability than the Azure SLA for VMs provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Windows VMs in multiple regions][multiregion-windows] or [Run Linux VMs in multiple regions][multiregion-linux].
 
-[dmz]: ../../blueprints/dmz/index.md
-[ha-nva]: ../../blueprints/dmz/nva-ha.md
-[hybrid-network]: ../../blueprints/hybrid-networking/index.md
-[identity]: ../../blueprints/identity/index.md
-[multiregion-windows]: ../../blueprints/virtual-machines-windows/multi-region-application.md
-[multiregion-linux]: ../../blueprints/virtual-machines-linux/multi-region-application.md
+[dmz]: ../../reference-architectures/dmz/index.md
+[ha-nva]: ../../reference-architectures/dmz/nva-ha.md
+[hybrid-network]: ../../reference-architectures/hybrid-networking/index.md
+[identity]: ../../reference-architectures/identity/index.md
+[multiregion-windows]: ../../reference-architectures/virtual-machines-windows/multi-region-application.md
+[multiregion-linux]: ../../reference-architectures/virtual-machines-linux/multi-region-application.md
