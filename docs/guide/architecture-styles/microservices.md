@@ -31,9 +31,9 @@ Besides for the services themselves, some other components appear in a typical m
 
 **Service Discovery**.  Maintains a list of services and which nodes they are located on. Enables service lookup to find the endpoint for a service. 
 
-**API Gateway**. The API gateway is the entry point for clients. Clients don’t call services directly. Instead, they call the API gateway, which forwards the call to the appropriate services on the back end. The API gateway might aggregate the responses from serveral services and return the aggregrated response. 
+**API Gateway**. The API gateway is the entry point for clients. Clients don’t call services directly. Instead, they call the API gateway, which forwards the call to the appropriate services on the back end. The API gateway might aggregate the responses from several services and return the aggregrated response. 
 
-There are several advantages to using an API gateway:
+The advantages of using an API gateway include:
 
 - It decouples clients from services. Services can be versioned or refactored without needing to update all of the clients.
 
@@ -101,11 +101,11 @@ The following diagram shows a microservices architecture using containers runnin
 
 ![](./images/microservices-acs.png)
  
-You can use Azure Container Service to configure and provision a Docker cluster. Azure Container Services supports several popular container orchestrators.
+You can use Azure Container Service to configure and provision a Docker cluster. Azure Container Services supports several popular container orchestrators, including DC/OS, Docker Swarm, and Kubernetes.
 
 **Public nodes** are reachable through a public-facing load balancer. The API gateway is hosted on these nodes.
 
-**Backend nodes** run services that clients reach via the API gateway, rather than directly calling. These nodes don’t receive Internet traffic. The backend nodes might include more than one pool of VMs, each with a different hardware profile. For example, you could create separate pools for general compute workloads, high CPU workloads, and high memory workloads. 
+**Backend nodes** run services that clients reach via the API gateway. These nodes don’t receive Internet traffic directly. The backend nodes might include more than one pool of VMs, each with a different hardware profile. For example, you could create separate pools for general compute workloads, high CPU workloads, and high memory workloads. 
 
 **Management VMs** run the master nodes for the container orchestrator. 
 

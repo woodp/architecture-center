@@ -22,6 +22,6 @@ This problem is not limited to monolithic applications. An application can be de
 
 **Abstract infrastructure away from domain logic.** Don't let domain logic get entangled with infrastructure-related functionality, such as messaging or persistence. Otherwise, changes in the domain logic will require updates to the infrastructure layers and vice versa. 
 
-**Offload common tasks to a separate service.** For example, if serveral services need to authenticate requests, you could move this functionality into its own service. Then you could evolve the authentication service &mdash; for example, by adding a new authentication flow &mdash; without touching any of the services that use it.
+**Offload common tasks to a separate service.** For example, if several services need to authenticate requests, you could move this functionality into its own service. Then you could evolve the authentication service &mdash; for example, by adding a new authentication flow &mdash; without touching any of the services that use it.
 
 **Deploy services independently.** When the DevOps team can deploy a single service independently of other services in the application, updates can happen more quickly and safely. Bug fixes and new features can be rolled out at a more regular cadance.
