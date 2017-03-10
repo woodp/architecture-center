@@ -56,7 +56,7 @@ Consider this architectural style for:
 
 - **Independent deployments**. You can update a service without re-deploying the entire application, and roll back an update if somethign goes wrong. Bug fixes and feature releases are more manageable and less risky.
 
-- **Independent development**. A single development team can build, test, and deploy a service. The result is continuous innovation and a faster release cadence. The smaller scope of each service makes them easier to understand and reason about.
+- **Independent development**. A single development team can build, test, and deploy a service. The result is continuous innovation and a faster release cadence. The smaller scope of each service makes them easier to understand and reason about. 
 
 - **Fault isolation**. If a service goes down, it won’t take out the entire application. (Services that consume another service should be resilient to failures in that services - still need to follow resiliency best practices and design patterns
 
@@ -92,8 +92,7 @@ Consider this architectural style for:
 
 - Avoid the Enterprise Service Bus pattern that builds domain logic into the messaging infrastructure.
 
-- Services should have loose coupling and high functional cohesion. 
-Cohesion = functional cohesion. These are things that are likely to need to change together, meaning if they are placed in separate services, those services end up being coupled. Also, high cohesion tends to mean lots of communication, which could result in overly chatting services, if put in different services.
+- Services should have loose coupling and high functional cohesion. Functions that are likely to change together should be packaged and deployed together. If they reside in separate services, those services end up being tightly coupled, because a change in one service will require updating the other service. Overly chatty communication betweeen two services may be a symptom of tight coupling and low cohesion. 
 
 ## Microservices using containers on Azure
 
