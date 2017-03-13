@@ -3,9 +3,12 @@
 ## [Overview](./index.md)
 
 ## [Architecture styles](./architecture-styles/index.md)
-### [Microservices](./architecture-styles/microservices.md)
 ### [N-tier application](./architecture-styles/n-tier.md)
 ### [Web-queue-worker](./architecture-styles/web-queue-worker.md)
+### [Microservices](./architecture-styles/microservices.md)
+### [CQRS](./architecture-styles/cqrs.md)
+### Event-driven architecture
+### Big data architecture
 
 ## [Design principles](./design-principles/index.md)
 ### [Use managed services](./design-principles/managed-services.md)

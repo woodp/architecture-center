@@ -20,13 +20,15 @@ The choice of an architecture style does not dictate a particular technology. Ho
 
 ## Catalog of architecture styles
 
-- Big compute
-- Big data
-- CQRS
-- Event driven
-- [Microservices](./microservices.md)
 - [N-tier](./n-tier.md)
 - [Web-queue-worker](./web-queue-worker.md)
+- [Microservices](./microservices.md)
+
+- Big compute (?)
+- Big data
+- CQRS
+- Event-driven architecture
+
 
 For each architecture style, we include the following:
 
