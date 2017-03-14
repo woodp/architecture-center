@@ -44,13 +44,20 @@ Apply CQRS only to those subsystems where there is clear value in separating rea
 
 ## Additional considerations
 
-- Consider using the Event Sourcing pattern to avoid conflicts in updates.
+- CQRS is not a top-level architecture that applies to an entire system. Instead, it is applied to a subsystem of a larger architecture. 
+
+- Consider using the Event Sourcing pattern to avoid update conflicts.
 
 - Consider using the Materialized View pattern for the read model, to optimize the schema for queries.
 
-- CQRS is not a top-level architecture that applies to an entire system. Instead, it is applied to a subsystem of a larger architecture. 
 
-The following diagram shows an example of CQRS in the context of a microservices architecture
+## CQRS in Microservices
+
+CQRS can be a useful pattern in a microservices architecture.
+
+
+
+
  
 ![](./images/cqrs-microservices.png)
 
