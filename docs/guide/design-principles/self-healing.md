@@ -38,7 +38,7 @@ Also, don’t just consider "big events" like regional outages, which are genera
 
 **Throttle clients**. Sometimes a small number of users create excessive load, which can reduce your application’s availability for other users. In this situation, throttle the client for a certain period of time. 
 
-**Block bad actors**. Just becuse you throttle a client, that doesn’t mean client was acting maliciously. It just means the client exceeded their service quota. But if a client consistently exceeds their quota or otherwise behaves badly, you might block them. Define an out-of-band process for user to request getting unblocked.
+**Block bad actors**. Just because you throttle a client, that doesn’t mean client was acting maliciously. It just means the client exceeded their service quota. But if a client consistently exceeds their quota or otherwise behaves badly, you might block them. Define an out-of-band process for user to request getting unblocked.
 
 **Use leader election**. When you need to coordinate a task, use leader election to select a coordinator. That way, the coordinator is not a single point of failure. If the coordinator fails, a new one is selected. Rather than implement a leader election algorithm from scratch, consider an off-the-shelf solution such as Zookeeper.  
 

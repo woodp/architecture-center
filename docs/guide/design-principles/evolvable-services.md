@@ -2,7 +2,7 @@
 
 Evolvable services are the key to continuous innovation. 
 
-All successful applications change over time, whether to fix bugs, add new features, bring in new technologies, or make existing systems more scalable and resilient. If all the parts of an application are tightly coupled, it becomes very hard to introduce changes into the system. A change in one part of the application may break another part, or cause changes to ripple throught the entire codebase.
+All successful applications change over time, whether to fix bugs, add new features, bring in new technologies, or make existing systems more scalable and resilient. If all the parts of an application are tightly coupled, it becomes very hard to introduce changes into the system. A change in one part of the application may break another part, or cause changes to ripple through the entire codebase.
 
 This problem is not limited to monolithic applications. An application can be decomposed into services, but still exhibit the sort of tight coupling that leaves the system rigid and brittle. But when services are designed to evolve, teams can innovate and continuously deliver new features. 
 
@@ -10,7 +10,7 @@ This problem is not limited to monolithic applications. An application can be de
 
 **Enforce high cohesion and loose coupling.** A service is *cohesive* if it provides functionality that logically belongs together. Services are *loosely coupled* if you can change one service without changing the other. High cohesion generally means that changes in one function will require changes in other related functions. If you find that updating a service requires coordinated updates to other services, it may be a sign that your services are not cohesive. One of the goals of domain-driven design (DDD) is to identity those boundaries
 
-**Encapsulate domain knowledge.** When a client consumes a service, the responsiblity for enforcing the business rules of the domain should not fall on the client. Instead, the service should encapsulate all of the domain knowledge that falls under its responsiblity. Otherwise, every client has to enforce the business rules, and you end up with domain knowledge spread across different parts of the application. 
+**Encapsulate domain knowledge.** When a client consumes a service, the responsibility for enforcing the business rules of the domain should not fall on the client. Instead, the service should encapsulate all of the domain knowledge that falls under its responsibility. Otherwise, every client has to enforce the business rules, and you end up with domain knowledge spread across different parts of the application. 
 
 **Use asynchronous messaging.** Asynchronous messaging is a way to decouple the message producer from the consumer. The producer does not depend on the consumer responding to the message or taking any particular action. With a pub/sub architecture, the producer may not even know who is consuming the message. New services can easily consume the messages without any modifications to the producer.
 
@@ -24,4 +24,4 @@ This problem is not limited to monolithic applications. An application can be de
 
 **Offload cross-cutting concerns to a separate service.** For example, if several services need to authenticate requests, you could move this functionality into its own service. Then you could evolve the authentication service &mdash; for example, by adding a new authentication flow &mdash; without touching any of the services that use it.
 
-**Deploy services independently.** When the DevOps team can deploy a single service independently of other services in the application, updates can happen more quickly and safely. Bug fixes and new features can be rolled out at a more regular cadance. Design both the application and the release process to support independent updates.
+**Deploy services independently.** When the DevOps team can deploy a single service independently of other services in the application, updates can happen more quickly and safely. Bug fixes and new features can be rolled out at a more regular cadence. Design both the application and the release process to support independent updates.

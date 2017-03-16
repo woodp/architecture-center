@@ -40,7 +40,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 ## Challenges
 
 - It's easy to end up with a middle tier that just does CRUD operations on the database, adding extra latency without doing any useful work. 
-- Monolithic design prevents independent deployment of layers/tiers.
+- Monolithic design prevents independent deployment of features.
 - Managing an IaaS application is more work than a pure PaaS application that uses only managed services. 
 - It can be difficult to manage the versioning of the code that is deployed on the VMs, making it challenging to update the application.
 
@@ -56,12 +56,16 @@ Each tier is also placed inside its own subnet, meaning their internal IP addres
 
 The web and business tiers are stateless. any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend SQL Server, using Always On Availability Groups for high availability. For Linux, we recommend Apache Cassandra. (SQL Server for Linux is currently in preview) 
 
-Do not allow direct RDP or SSH access to VMs that are running application code. Instead, operators should log into a jumpbox, also called a bastion host. This is  VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows RDP or SSH only from whitelisted public IP addresses.
+Use network security groups (NSGs) to restrict access to each tier. For example, the database tier only allows access from the business tier.
+
+Do not allow direct RDP or SSH access to VMs that are running application code. Instead, operators should log into a jumpbox, also called a bastion host. This is a  VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows RDP or SSH only from whitelisted public IP addresses.
 
 
 ### Additional considerations
 
 - N-tier architectures are not restricted to three tiers. For more complex applications, it is common to have more tiers. In that case, consider using layer-7 routing to route requests to a particular tier.
+
+- Tiers are the boundary of scalability, reliability and security. Consider having separate tiers for services with different requirements in those areas.
 
 - Look for places in the architecture where you can use a managed service without significant refactoring. In particular, look at caching, messaging, storage, and databases. 
 
