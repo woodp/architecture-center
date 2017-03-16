@@ -12,7 +12,7 @@ Design your application so that it can scale horizontally, adding or removing ne
 
 ## Recommendations
 
-**Avoid instance stickiness**. Stickiness, or *session affinity*, is when requests from the same client are always routed to the same server. Stickiness limits the application’s ability to scale out. For example, traffic from a high-volume user will not be distributed across instances. Instead any instance should be able to handle any request.
+**Avoid instance stickiness**. Stickiness, or *session affinity*, is when requests from the same client are always routed to the same server. Stickiness limits the application’s ability to scale out. For example, traffic from a high-volume user will not be distributed across instances. Causes of stickiness include storing session state in memory, and using machine-specific keys for encryption. Make sure that any instance can handle any request. 
 
 **Use built-in autoscaling features**. [Azure App Service][app-service-autoscale], [VM Scale Sets][vmss-autoscale], and [Cloud Services][cloud-service-autoscale] all support autoscaling as a built-in feature of the service. If the application has a predictable, regular workload, scale out on a schedule. For example, scale out during business hours. Otherwise, if the workload is not predictable, use performance metrics such as CPU or request queue length to trigger autoscaling.
 

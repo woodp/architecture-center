@@ -51,14 +51,18 @@ Consider this architectural style for:
 
 - Applications with rich domains or many subdomains.
 
+- An organization that consists of small development teams.
+
 
 ## Benefits 
 
+- **Small, focused teams.** Teams can focus on one service. The smaller scope of each service makes the code base easier to understand and reason about. It's easier to ramp up.
+
 - **Independent deployments**. You can update a service without re-deploying the entire application, and roll back an update if somethign goes wrong. Bug fixes and feature releases are more manageable and less risky.
 
-- **Independent development**. A single development team can build, test, and deploy a service. The result is continuous innovation and a faster release cadence. The smaller scope of each service makes them easier to understand and reason about. 
+- **Independent development**. A single development team can build, test, and deploy a service. The result is continuous innovation and a faster release cadence. 
 
-- **Fault isolation**. If a service goes down, it won’t take out the entire application. (Services that consume another service should be resilient to failures in that services - still need to follow resiliency best practices and design patterns
+- **Fault isolation**. If a service goes down, it won’t take out the entire application. However, that doesn't mean the microservices gives you resiliency for free. You still need to follow resiliency best practices and design patterns.
 
 - **Mixed technology stacks**. Teams can pick the technology that best fits their service. 
 
@@ -66,7 +70,9 @@ Consider this architectural style for:
 
 ## Challenges
 
-- **Complexity**. A microservices application has more moving parts than the equivalent monolithic application. On the one hand, each service is simpler, but the entire system as a whole is more complex.
+- **Complexity**. A microservices application has more moving parts than the equivalent monolithic application. Each service is simpler, but the entire system as a whole is more complex.
+
+- **Lack of governance.** The decentralized approach to building microservices has advantages, but it can also lead to problems. You may end up with so many different languages and frameworks that the applications becomes hard to maintain. It may be useful to put some project-wide standards in place, without overly restricting teams' flexibility. This especially applies to cross-cutting functionality such as logging.
 
 - **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns.
 
@@ -76,7 +82,7 @@ Consider this architectural style for:
 
 - **Logging**. Correlated logging across services can be challenging.
 
-- **Versioning**. Updates to a service must not break services that depend on it.
+- **Versioning**. Updates to a service must not break services that depend on it. Multiple services could be updated at any given time, so without careful design, you might hit backward- and forward-compatibility issues.
 
 - **Skillset**. Microservices are relatively new. Carefully evaluate whether the team has the skills and experience to be succesful.
 

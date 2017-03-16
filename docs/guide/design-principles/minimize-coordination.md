@@ -1,8 +1,8 @@
-# Minimize coordination between application services. 
+# Minimize coordination between application services
 
 Most cloud applications consist of multiple application services &mdash; web front ends, databases, business processes, reporting and analysis, and so on. To achieve scalability and reliability, each of those services runs on multiple instances. 
 
-What happens when two instances try to perform concurrent operations that affect  some shared state? In some cases, there must be coordination across nodes, for example to preserve ACID guarantees. In this diagram, `Node2` is waiting for `Node1` to release a database lock:
+What happens when two instances try to perform concurrent operations that affect some shared state? In some cases, there must be coordination across nodes, for example to preserve ACID guarantees. In this diagram, `Node2` is waiting for `Node1` to release a database lock:
 
 ![](./images/database-lock.svg)
 
@@ -23,7 +23,7 @@ You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coord
 
 **Use event sourcing**. With this approach, changes to state are recorded as a series of events to an append-only data store. Appending an event to the stream is an atomic operation, requiring minimal locking. The current state is obtained by replaying the events.
 
-**Embrace eventual consistency.** If you separate reads from writes (using a pattern such as [CQRS][cqrs]), the read path does not have to wait on writes. The tradeoff is that reads might get slightly stale data. In many applications, that's an acceptable tradeoff.
+**Embrace eventual consistency.** When data is distributed, it takes coordination to enforce strong consistency guarantees. For example, suppose an operation updates two databases. Instead of putting it into a single transaction scope, it's better if the system can accomodate eventual consistency, perhaps by using the [Compensating Transaction][compensating-transaction] pattern to roll back after a failure.
 
 **Partition data.**  Avoid putting all of your data into one relational DB scheme that is shared across many application services. (Microservices architectures enforce this prinicple by making each service responsible for its own data store.) Within a single database, partitioning the data into shards can improve concurrency, because a service writing to one shard does not affect a service writing to a different shard.
 
@@ -36,5 +36,6 @@ You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coord
 
 <!-- links -->
 
+[compensating-transaction]: ../../compensating-transaction.md
 [cqrs]: ../../patterns/cqrs.md
 [sas-pattern]: ../../patterns/scheduler-agent-supervisor.md

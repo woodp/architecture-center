@@ -1,31 +1,39 @@
 # Partition around limits
 
-As an application scales, eventually it may hit limits in scalability, query performance, or size. Limits to consider include database size, query throughput, and network throughput.
 
-Partioning is a way to segment a subsystem (especially a data store)
+In the cloud, all services have limits in their ability to scale up. Azure service limits are documented in [Azure subscription and service limits, quotas, and constraints][azure-limits]. Limits include number of cores, database size, query throughput, and network throughput. If your system grows sufficiently large, you may hit one or more of these limits. In that case, use partitioning to work around the limit.
 
-Data can be partitioned horizontally, vertically, or functionally:
+There are many ways to partition a system, such as:
 
-- **Horizontal partitioning**, also called sharding. Each partition holds data for a subset of the total data set. The partitions share the same data schema. For example, customers whose names start with A&ndash;M go into one partition, N&ndash;Z into another partition.
+- Partition a database to avoid limits on database size, data I/O, or number of concurrent sessions.
 
-- **Vertical partitioning**. Each partition holds a subset of the fields for the items in the data store. For example, frequently accessed fields might go in one  partition, and less frequently accessed fields in another.
+- Partition a queue or message bus to avoid limits on the number of requests or the number of concurrent connections.
 
-- **Functional partitioning**. Data is partitioned according to how it is used by each bounded context in the system. For example, you might store invoice data in one partition and product inventory data in another. The schemas are independent.
+- Partition an App Service web app to avoid limits on the number of instances per App Service plan. 
+
+- Partition a VM cluster to avoid limits on the number of VMs per scale set or the number of cores per subscription.
+
+There are several ways to partition a database:
+
+- Horizontal partitioning, also called sharding. Each partition holds data for a subset of the total data set. The partitions share the same data schema. For example, customers whose names start with A&ndash;M go into one partition, N&ndash;Z into another partition.
+
+- Vertical partitioning. Each partition holds a subset of the fields for the items in the data store. For example, put frequently accessed fields in one partition, and less frequently accessed fields in another.
+
+- Functional partitioning. Data is partitioned according to how it is used by each bounded context in the system. For example, store invoice data in one partition and product inventory data in another. The schemas are independent.
 
 There are pros and cons to each. For more detailed guidance, see [Data partitioning][data-partitioning-guidance].
 
-Databases are one obvious candidate for partitioning, but you can also partition queues, event streams, message buses, or any other subsystem where there is a natural way to divide up the work.
-
+If you partition a cluster, you will need a way to route requests to the correct partition, for example by using layer-7 routing or Azure Traffic Manager. 
 
 ## Recommendations
 
-**Can you scale up?** Before you take the step of partitioning, consider whether you have room to scale up. Can you use a larger instance size or a higher service tier? Azure service limits are documented in [Azure subscription and service limits, quotas, and constraints][azure-limits].
+**Partition different parts of the application.** Databases are one obvious candidate for partitioning, but also consider storage, cache, queues, and compute instances.
 
-**Partition different parts of the application.** Database, storage, cache, and queues are all potential spots for partitioning.
-
-**Design the shard key to avoid hot spots.** If you partition a database, but one shard still gets the majority of the requests, then you haven't solved your  problem. Ideally, load gets distributed evenly across all the partitions. For example, hash by customer ID and not the first letter of the customer name, because some letters are more frequent.
+**Design the partition key to avoid hot spots.** If you partition a database, but one shard still gets the majority of the requests, then you haven't solved your problem. Ideally, load gets distributed evenly across all the partitions. For example, hash by customer ID and not the first letter of the customer name, because some letters are more frequent. The same principle applies when partitioning a message queue. Pick a partition key that leads to an even distribution of messages across the set of queues.
 
 **Partition around Azure subscription and resource group limits.** Individual components and services have limits, but there are also limits for subscriptions and resource groups. For large applications, you might need to partition around those limits.  
+
+**Partition at different levels.** Consider a database server deployed on a VM. The VM has a VHD that is backed by Azure Storage. The storage account belongs to an Azure subscription. Notice that each step in the hierarchy has limits. The database server may have a connection pool limit. VMs have CPU and network limits. Storage has IOPS limits. The subscription has limits on the number of VM cores and storage accounts. Generally, it's easier to partition lower in the hierarchy. Only large applications should need to partition at the subscription level. 
 
 
 <!-- links -->

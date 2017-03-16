@@ -16,7 +16,7 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 ![](./images/load-balancing.svg)
 
-**Replicate databases.** Use a database solution that supports replication and failover, such as [SQL Server Always On Availability Groups][sql-always-on] or [Apache Cassandra][cassandra]. Managed services such as Azure SQL Database and DocumentDB provide replication as a built-in feature.
+**Replicate databases.** Use a database solution that supports replication and failover, such as [SQL Server Always On Availability Groups][sql-always-on]. Managed services such as Azure SQL Database and DocumentDB provide replication as a built-in feature.
 
 **Deploy to more than one region.** For the highest availability, deploy the application to more than one region. That way, in the rare case when a problem affects an entire region, the application can fail over to another region. The following diagram shows a multi-region application that uses Azure Traffic Manager to handle failover.
 
